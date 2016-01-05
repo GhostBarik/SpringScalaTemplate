@@ -96,6 +96,15 @@
             <version>1.7.2.RELEASE</version>
         </dependency>
 
+        <!-- HIBERNATE -->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.6.Final</version>
+        </dependency>
+
+
         <!-- DATABASE DRIVERS -->
 
         <!-- POSTGRESQL -->
@@ -113,6 +122,15 @@
             <artifactId>h2</artifactId>
             <version>1.4.184</version>
         </dependency>
+
+        <!-- EASIER CONFIGURATION OF DATASOURCES -->
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
 
     </dependencies>
 

@@ -1,6 +1,6 @@
 package com.template.controller;
 
-import com.template.service.DummyService;
+import com.template.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 /**
- * main controller
+ * Main controller
  */
 @RestController
 public class MainController {
@@ -21,14 +21,18 @@ public class MainController {
      */
     private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 
+    /**
+     * User service
+     */
     @Autowired
-    DummyService dummyService;
+    UserService userService;
+
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public ResponseEntity<String> test() {
 
         logger.info("calling controller!");
 
-        return ResponseEntity.ok(dummyService.callMe());
+        return ResponseEntity.ok(userService.getAllUsers().toString());
     }
 }

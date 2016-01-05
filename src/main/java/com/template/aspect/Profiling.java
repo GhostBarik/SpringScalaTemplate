@@ -1,7 +1,7 @@
 package com.template.aspect;
 
 /**
- * annotation for enabling profiling aspect
+ * annotation for decorating methods with profiling aspect
  */
 public @interface Profiling {
 }
