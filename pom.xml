@@ -11,9 +11,18 @@
 
     <properties>
         <spring-framework.version>4.1.4.RELEASE</spring-framework.version>
+        <scala.version>2.11.7</scala.version>
     </properties>
 
     <dependencies>
+
+        <!-- SCALA LIBRARY -->
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
 
         <!-- LOGGING -->
 
@@ -109,6 +118,19 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
+
+
+        <!-- To define the plugin version in your parent POM -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>net.alchim31.maven</groupId>
+                    <artifactId>scala-maven-plugin</artifactId>
+                    <version>3.2.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
 
             <!-- MAVEN COMPILER PLUGIN -->
@@ -137,6 +159,30 @@
                         <contextPath>/</contextPath>
                     </webAppConfig>
                 </configuration>
+            </plugin>
+
+            <!-- SCALA PLUGIN -->
+
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
